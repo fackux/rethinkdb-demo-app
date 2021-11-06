@@ -1,6 +1,6 @@
 import { OnConnect, useTable } from "../db"
 import { randomUser } from "../models/seeds/users"
-import {Message} from '../models/types/message'
+import { Message } from '../models/types/message'
 import faker from 'faker/locale/es_MX'
 
 export const onRethinkConnect: OnConnect = async (connection) => {
@@ -11,7 +11,7 @@ export const onRethinkConnect: OnConnect = async (connection) => {
         await Users.clear()
     }
 
-    let users = []
+    let users:any[] = []
 
     for (let i = 0; i < 1000; i++) {
         const user = randomUser()
@@ -29,20 +29,18 @@ export const onRethinkConnect: OnConnect = async (connection) => {
 
     users = await Users.getAll()
 
-    for (let i = 0; i < 5000; i++) {
+    setInterval(async function () {
         const pair = faker.random.arrayElements(users, 2)
-        
-        const message:Message = {
+
+        const message: Message = {
             from: pair[0].id,
             to: pair[1].id,
-            text: faker.lorem.sentence(faker.datatype.number({ min: 1, max: 5})),
+            text: faker.lorem.sentence(faker.datatype.number({ min: 1, max: 5 })),
             createdAt: new Date(),
             readed: false,
             readedAt: null
         }
-        
-        await Messages.insert(message)
-    }
 
-    process.exit()
+        Messages.insert(message)
+    }, 5000)
 }
