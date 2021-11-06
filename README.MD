@@ -1,6 +1,6 @@
-# Proyecto Demo con Docker, Node, RethinkDB, WebSockets y React
+# Descripcion
 
-## Descripcion
+## Proyecto Demo con Docker, Node, RethinkDB, WebSockets y React
 
 La idea principal es crear una aplicacion usando las siguientes tecnologias:
 
