@@ -12,6 +12,11 @@ export function useTable(name: string, connection: Connection) {
         const tables = await db('test').tableCreate(name).run(connection)
     }
 
+    const getAll = async () => {
+        const results = await table.run(connection)
+        return await results.toArray()
+    }
+
     const clear = () => {
         return table.delete().run(connection)
     }
@@ -22,6 +27,7 @@ export function useTable(name: string, connection: Connection) {
 
     return {
         checkIfExists,
+        getAll,
         clear,
         create,
         insert

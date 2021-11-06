@@ -4,6 +4,6 @@ export interface Message {
     to: string; // User.id
     text: string;
     readed: boolean;
-    readedAt: Date;
+    readedAt: Date | null;
     createdAt: Date;
 }

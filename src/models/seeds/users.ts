@@ -1,6 +1,6 @@
 import faker from 'faker/locale/es_MX'
-import { Gender } from './types/gender';
-import { User } from './types/user';
+import { Gender } from '../types/gender';
+import { User } from '../types/user';
 export const randomGender = () => {
     return faker.random.arrayElement([Gender.Male, Gender.Female])
 }
