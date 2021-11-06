@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "tsc": "tsc",
     "db:seed": "ts-node src/index.ts",
     "server:dev": "ts-node src/server/server.ts",
     "server:start": "NODE_ENV=production ts-node src/server/server.ts"
